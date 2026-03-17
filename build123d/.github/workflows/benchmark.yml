@@ -1,0 +1,30 @@
+name: benchmarks
+
+on: [push, pull_request, workflow_dispatch]
+jobs:
+
+  benchmarks:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [
+          "3.12",
+          ]
+        os: [macos-15-intel, macos-14, ubuntu-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup/
+        with:
+          python-version: ${{ matrix.python-version }}
+          optional-dependencies: "development"
+      - name: benchmark
+        run: |
+          python -m pytest --benchmark-only --benchmark-autosave
+          pytest-benchmark compare --csv="results.csv"
+          cat results.csv
+      - uses: actions/upload-artifact@v6
+        with:
+          name: benchmark-results-${{ matrix.os }}
+          path: results.csv
