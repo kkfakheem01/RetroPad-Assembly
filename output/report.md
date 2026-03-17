@@ -64,24 +64,23 @@ Conclusion: all parts match the references exactly under the verification criter
 
 ### Files produced
 
-- `output/RetroPad_Assembly_build123d.stl`
-- `output/RetroPad_Assembly_build123d.stp`
-- `output/verification_results.txt`
-
-### Time spent
-
-- Total time: **[FILL ME IN: e.g., 2h 30m]**
-  - Modeling: **[FILL ME IN]**
-  - Assembly/alignment: **[FILL ME IN]**
-  - Verification + export: **[FILL ME IN]**
-
-### AI tools used
-
-- **[FILL ME IN]** (examples: “None”, or “Cursor AI (GPT-5.2) for drafting/report wording”, etc.)
+output/
+output/RetroPad_Assembly_build123d.stp
+output/RetroPad_Bottom_Shell_build123d.stp
+output/RetroPad_Button_build123d.stp
+output/RetroPad_D_Pad_build123d.stp
+output/RetroPad_Top_Shell_build123d.stp
+output/report.md
+output/verification_results.txt
+scripts/
+scripts/retropad_assembly.py
+scripts/retropad_bottom_shell.py
+scripts/retropad_button.py
+scripts/retropad_dpad.py
+scripts/retropad_top_shell.py
+scripts/verify_geometry.py
 
 ---
-
-## README
 
 ### Modeling strategy
 
@@ -101,11 +100,4 @@ Conclusion: all parts match the references exactly under the verification criter
   - exact **symmetric-difference volume** (tolerance 0.0)
 - The verification output is recorded in `output/verification_results.txt` and shows **|Δ|=0** and **symdiff=0** for all parts.
 
-### Total time spent
-
-- **[FILL ME IN: total elapsed time]**
-
-### AI tools used
-
-- **[FILL ME IN]**
 
