@@ -160,6 +160,12 @@ def main() -> Path:
     assy = build()
     export_stl(assy, str(out_stl))
     export_step(assy, str(out_step))
+
+    # Also export individual parts as STEP for downstream CAD workflows.
+    export_step(build_bottom_shell(), str(out_dir / "RetroPad_Bottom_Shell_build123d.stp"))
+    export_step(build_top_shell(), str(out_dir / "RetroPad_Top_Shell_build123d.stp"))
+    export_step(build_dpad(), str(out_dir / "RetroPad_D_Pad_build123d.stp"))
+    export_step(build_button(), str(out_dir / "RetroPad_Button_build123d.stp"))
     return out_step
 
 
